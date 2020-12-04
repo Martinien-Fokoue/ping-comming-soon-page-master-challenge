@@ -1,0 +1,194 @@
+$color : (
+    Blue: hsl(223, 87%, 63%),
+    Pale-Blue: hsl(223, 100%, 88%),
+    Light-Red: hsl(354, 100%, 66%),
+    Gray: hsl(0, 0%, 59%),
+    Very-Dark-Blue: hsl(209, 33%, 12%),
+);
+
+$size : 20px;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Libre Franklin;
+    font-size: $size;
+}
+
+body {
+    height: 100vh;
+    @media screen and (max-width : 700px){
+        height: auto;
+    }
+}
+
+.container {
+    display: grid;
+    grid-row-gap: 20px;
+
+    @media screen and (max-width : 700px){
+        width: 90%;
+        margin: 80px auto;
+    }
+
+    & .logo {
+        text-align: center;
+        margin-top: 50px;
+        
+        & img {
+            width: 70px;
+        }
+    }
+
+    & .item_1 {
+        display: grid;
+        grid-gap: 20px;
+        @media screen and (max-width : 700px){
+            width: 100%;
+            
+        }
+
+        & .description {
+            text-align: center;
+            display: grid;
+            grid-row-gap: 10px;
+            align-items: center;
+            justify-content: center;
+
+            & .title {
+                font-size: $size + 10px;
+                color: map-get($map: $color, $key: Gray);
+                font-weight: 300;
+                @media screen and (max-width : 700px){
+                    width: 100%;
+                    font-size: $size;
+                    
+                }
+                & .bold {
+                    font-size: inherit;
+                    font-weight: 700;
+                    color: map-get($map: $color, $key: Very-Dark-Blue);
+                }
+            }
+
+            & .sub_title {
+                font-weight: 300;
+                font-size: 18px;
+                @media screen and (max-width : 700px){
+                    font-size: 14px;
+                }
+            }
+        }
+
+        & .notify_form {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-gap: 20px;
+            width: 40%;
+            margin: 0 auto;
+            @media screen and (max-width : 700px){
+                width: 100%;
+                grid-template-columns: 1fr;
+                grid-gap: 15px;
+                
+            }
+
+            & input {
+                border-radius: 40px;
+                padding: 10px 20px;
+                border: none;
+                outline: none;
+                border: 1px solid map-get($map: $color, $key: Pale-Blue);
+                font-size: 16px;
+                @media screen and (max-width : 700px){
+                    padding: 10px 20px;
+                    font-size: 14px;
+                }
+
+                &::placeholder{
+                    color: map-get($map: $color, $key: Pale-Blue);
+                }
+            }
+
+            & button {
+                border-radius: 40px;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                background-color: map-get($map: $color, $key: blue);
+                color: #FFF;
+                font-weight: 700;
+                padding: 14px 20px;
+                font-size: 16px;
+                box-shadow: 0 3px 12px map-get($map: $color, $key: Pale-Blue);
+                @media screen and (max-width : 700px){
+                    padding: 10px 20px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    & .item_2{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & img {
+            width: 35%;
+            margin-top: 30px;
+            @media screen and (max-width : 700px){
+                width: 100%;
+            }
+        }
+    }
+
+    & .item_3{
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-row-gap: 10px;
+        align-items: center;
+        justify-content: center;
+
+        & .socials_icons {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 50%;
+            margin: 0 auto;
+
+            & .icon {
+                border: 1px solid map-get($map: $color, $key: Pale-Blue);
+                padding: 10px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 35px;
+                height: 35px;
+                @media screen and (max-width : 700px){
+                    width: 30px;
+                    height: 30px;
+                    padding: 7px;
+                    
+                }
+                
+
+                & svg {
+                    width: 60px;
+                    height: 60px;
+                    fill: map-get($map: $color, $key: blue);
+                }
+            }
+        }
+
+        & .copyrigth {
+            color: map-get($map: $color, $key: Gray);
+            font-size: 17px;
+            @media screen and (max-width : 700px){
+                font-size: 14px;
+            }
+        }
+    }
+}
